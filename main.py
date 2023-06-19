@@ -6,11 +6,14 @@ print(art.logo)
 def cipher(text):
     to_return=""
     for letter in text:
-        if ord(letter)+shift<123:
-            to_return+=chr(ord(letter)+shift)
+        if ord(letter)>=97 and ord(letter)<=122:
+            if ord(letter)+shift<123:
+                to_return+=chr(ord(letter)+shift)
+            else:
+                add=ord(letter)+shift-123
+                to_return+=chr(97+int(add))
         else:
-            add=ord(letter)+shift-123
-            to_return+=chr(97+int(add))
+            to_return+=letter
             
     return to_return;
 
