@@ -1,3 +1,7 @@
+#importing art.py file
+import art
+print(art.logo)
+
 #start encode function
 def cipher(text):
     to_return=""
@@ -13,20 +17,23 @@ def cipher(text):
 
 #start the main code
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+restart='y'
 
-direction = input("Type 'encode' to cipher, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+while restart=='y':
 
-if direction=='encode':
-    print(cipher(text))
-elif direction=="decode":
-    shift=26-shift
-    print(cipher(text))
-else:
-    print("wrong option")
-    exit
+    direction = input("Type 'encode' to cipher, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift%=26
 
+    if direction=='encode':
+        print(cipher(text))
+    elif direction=="decode":
+        shift=26-shift
+        print(cipher(text))
+    else:
+        print("wrong option")
+        exit
 
+    restart=input("Do you want to restart the program (y/n) ")
 
