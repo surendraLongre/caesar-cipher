@@ -1,14 +1,27 @@
+#start encode function
 def encrypt(text):
     to_return=""
     for letter in text:
         if ord(letter)+shift<123:
             to_return+=chr(ord(letter)+shift)
         else:
-            add=ord(letter)-122
+            add=ord(letter)+shift-123
             to_return+=chr(97+int(add))
             
     return to_return;
 
+
+#start the decode function
+
+def decrypt(text):
+    to_return=""
+    for letter in text:
+        if ord(letter)+shift<123:
+            to_return+=chr(ord(letter)+shift)
+        else:
+            add=ord(letter)+shift-123
+            to_return+=chr(97+int(add))
+    return to_return
 
 #start the main code
 
@@ -21,7 +34,8 @@ shift = int(input("Type the shift number:\n"))
 if direction=='encode':
     print(encrypt(text))
 elif direction=="decode":
-    print(decrypt(text));
+    shift=26-shift
+    print(decrypt(text))
 else:
     print("wrong option")
     exit
